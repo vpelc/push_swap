@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:26:51 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/02 20:02:03 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/05 19:34:47 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,24 @@ void	ft_rotate(t_node **list)
 	(*list)->next = temp;
 	*list = temp->next;
 	temp->next = NULL;
+}
+
+void	ft_rotate_reverse(t_node **list)
+{
+	t_node	**templist;
+	t_node	*temp;
+	int		length;
+
+	length = ft_count_node(list);
+	if (!(*list) || length < 1)
+		return ;
+	*templist = *list;
+	while (((*templist)->next)->next)
+		*templist = (*templist)->next;
+	temp = (*templist)->next;
+	(*templist)->next = NULL;
+	temp->next = *list;
+	*list = temp;
 }
 
 int	main(int argc, char *argv[])
@@ -157,7 +175,7 @@ int	main(int argc, char *argv[])
 	// printf("%d\n", temp1.data);
 	// list = temp1.next; */
 
-
+/* 		**ROTATE**
 
 	node_a.data = 5;
 	node_b.data = 4;
@@ -177,8 +195,8 @@ int	main(int argc, char *argv[])
 	}
 
 	node_a.data = 5;
-	node_b.data = 3;
-	node_c.data = 4;
+	node_b.data = 4;
+	node_c.data = 3;
 	node_a.next = &node_b;
 	node_b.next = &node_c;
 	node_c.next = NULL;
@@ -191,7 +209,42 @@ int	main(int argc, char *argv[])
 		temp = *list;
 		printf("%d\n", temp.data);
 		list = temp.next;
-	} 
+	}*/
+
+/* 		**REVERSE ROTATE**
+	node_a.data = 5;
+	node_b.data = 4;
+	node_c.data = 3;
+	node_a.next = &node_b;
+	node_b.next = &node_c;
+	node_c.next = NULL;
+	list = &node_a;
+
+	printf("\nreverse rotate\n\n");
+	temp = *list;
+	while (temp.next)
+	{
+		temp = *list;
+		printf("%d\n", temp.data);
+		list = temp.next;
+	}
+
+	node_a.data = 5;
+	node_b.data = 4;
+	node_c.data = 3;
+	node_a.next = &node_b;
+	node_b.next = &node_c;
+	node_c.next = NULL;
+	list = &node_a;
+	ft_rotate_reverse(&list);
+	printf("\nreverse rotated\n\n");
+	temp = *list;
+	while (temp.next)
+	{
+		temp = *list;
+		printf("%d\n", temp.data);
+		list = temp.next;
+	} */
 	return (0);
 }
 
