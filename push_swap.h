@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:29:13 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/08 14:23:59 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/17 17:37:06 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 /* Stack structure */
 typedef struct s_node
 {
-	int				data;
+	long			data;
+	long			index;
 	struct s_node	*next;
 }	t_node;
 
@@ -38,12 +39,19 @@ void	rra(t_node **stack_a);
 /* Operations for stack B */
 void	sb(t_node **stack_b);
 void	pb(t_node **stack_b, t_node **stack_a);
-void	ra(t_node **stack_b);
-void	rra(t_node **stack_b);
+void	rb(t_node **stack_b);
+void	rrb(t_node **stack_b);
 
 /* Operations for both stacks */
 void	ss(t_node **stack_a, t_node **stack_b);
 void	rr(t_node **stack_a, t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
+
+t_node	*ft_get_arg(char *str, int index);
+long	ft_atol(const char *str);
+t_node	*ft_lstlast(t_node *list);
+void	ft_lstadd_back(t_node **list, t_node *new);
+int		ft_check_sort(t_node *stack_a);
+void	ft_sort3(t_node **stack_a);
 
 #endif

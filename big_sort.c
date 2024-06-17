@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_push.c                                  :+:      :+:    :+:   */
+/*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/08 14:10:28 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/17 16:54:31 by vpelc            ###   ########.fr       */
+/*   Created: 2024/06/14 18:06:02 by vpelc             #+#    #+#             */
+/*   Updated: 2024/06/17 17:06:21 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_node **stack_a, t_node **stack_b)
+void	ft_sort(t_node **stack_a, t_node	**stack_b)
 {
-	ft_push(stack_a, stack_b);
-	printf("pa\n");
+
 }
 
-void	pb(t_node **stack_b, t_node **stack_a)
+int	ft_get_index(t_node	*node, int data)
 {
-	ft_push(stack_b, stack_a);
-	printf("pb\n");
+	int	i;
+
+	i = 0;
+	while (node->data != data)
+	{
+		i++;
+		node = node->next;
+	}
+	return (i);
 }
