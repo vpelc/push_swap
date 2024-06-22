@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:29:13 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/20 14:02:48 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/22 18:25:55 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,36 @@ void	ss(t_node **stack_a, t_node **stack_b);
 void	rr(t_node **stack_a, t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
 
+/*	Functions to get args and put in args
+	in the stack A
+*/
 int		get_arg(char *str, long **tab);
 t_node	*put_arg(char *str, int index);
 long	ft_atol(const char *str);
+char	**ft_split(char const *str, char c);
+
 t_node	*ft_lstlast(t_node *list);
 void	ft_lstadd_back(t_node **list, t_node *new);
 int		check_sort(t_node *stack_a);
 void	sort3(t_node **stack_a);
+void	sort(t_node **stack_a, t_node **stack_b);
+void	sort_b(t_node **stack_a, t_node **stack_b);
+void	sort_a(t_node **stack_a, t_node **stack_b);
+
 int		get_index(t_node *node, int data);
-char	**ft_split(char const *str, char c);
+int		get_min(t_node	*stack);
+int		get_max(t_node	*stack);
+
+int		pos_stack(t_node *stack, int data);
+
+int		case_rarb(t_node *stack_a, t_node *stack_b, int data);
+int		case_rrarrb(t_node *stack_a, t_node *stack_b, int data);
+int		case_rrarb(t_node *stack_a, t_node *stack_b, int data);
+int		case_rarrb(t_node *stack_a, t_node *stack_b, int data);
+
+void	do_rarb(t_node **stack_a, t_node **stack_b, int data);
+void	do_rrarrb(t_node **stack_a, t_node **stack_b, int data);
+void	do_rrarb(t_node **stack_a, t_node **stack_b, int data);
+void	do_rarrb(t_node **stack_a, t_node **stack_b, int data);
 
 #endif

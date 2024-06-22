@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:45:13 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/20 13:58:39 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/22 18:33:00 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char *argv[])
 		tmp = tmp->next;
 	}
 	printf("\nNow\n\n");
-	sort3(&stack_a);
+	sort(&stack_a, &stack_b);
 	tmp = stack_a;
 	printf("\n");
 	while (tmp)

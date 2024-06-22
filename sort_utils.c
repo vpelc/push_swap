@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:17:01 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/18 20:09:35 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/22 15:18:28 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,46 +46,24 @@ int	get_max(t_node	*stack)
 	return (i);
 }
 
-int	find_place_b(t_node *stack_b, int data)
+/*	Finds the position in which the number needs to be */
+int	pos_stack(t_node *stack, int data)
 {
 	int		i;
 	t_node	*tmp;
 
 	i = 1;
-	if (data < ft_lstlast(stack_b)->data && data > stack_b->data)
+	if (data < ft_lstlast(stack)->data && data > stack->data)
 		return (0);
-	else if (data < get_min(stack_b) || data > get_max(stack_b))
-		return (get_index(stack_b, get_max(stack_b)));
+	else if (data < get_min(stack) || data > get_max(stack))
+		return (get_index(stack, get_max(stack)));
 	else
 	{
-		tmp = stack_b->next;
-		while (data > stack_b->data || data < tmp->data)
+		tmp = stack->next;
+		while (data > stack->data || data < tmp->data)
 		{
-			stack_b = stack_b->next;
-			tmp = stack_b->next;
-			i++;
-		}
-	}
-	return (i);
-}
-
-int	find_place_a(t_node *stack_a, int data)
-{
-	int		i;
-	t_node	*tmp;
-
-	i = 1;
-	if (data < ft_lstlast(stack_a)->data && data > stack_a->data)
-		return (0);
-	else if (data < get_min(stack_a) || data > get_max(stack_a))
-		return (get_index(stack_a, get_max(stack_a)));
-	else
-	{
-		tmp = stack_a->next;
-		while (data > stack_a->data || data < tmp->data)
-		{
-			stack_a = stack_a->next;
-			tmp = stack_a->next;
+			stack = stack->next;
+			tmp = stack->next;
 			i++;
 		}
 	}

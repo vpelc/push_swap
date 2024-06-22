@@ -6,18 +6,18 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:56:31 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/18 14:44:12 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/22 16:08:24 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* Hardcoded sort of a list of three
-	- rotate if : top = max / mid = min / bot = mid
-	- reverse rotate if : top = mid / mid = max / bot = min
-	- swap if : top = mid / mid = min / bot = max
-	- rotate & swap if : top = max / mid = mid / bot = min
-	- swap & rotate if : top = min / mid = max / bot = mid
+	- rotate if : 			top = max | mid = min | bot = mid
+	- reverse rotate if : 	top = mid | mid = max | bot = min
+	- swap if : 			top = mid | mid = min | bot = max
+	- rotate & swap if : 	top = max | mid = mid | bot = min
+	- swap & rotate if : 	top = min | mid = max | bot = mid
 */
 void	sort3(t_node **stack_a)
 {
