@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:29:13 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/17 17:37:06 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/20 14:02:48 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_node
 }	t_node;
 
 /* Functions for the operations */
-int		ft_count_node(t_node **list);
+int		count_node(t_node **list);
 void	ft_swap(t_node **list);
 void	ft_push(t_node **list_a, t_node **list_b);
 void	ft_rotate(t_node **list);
@@ -47,11 +47,14 @@ void	ss(t_node **stack_a, t_node **stack_b);
 void	rr(t_node **stack_a, t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
 
-t_node	*ft_get_arg(char *str, int index);
+int		get_arg(char *str, long **tab);
+t_node	*put_arg(char *str, int index);
 long	ft_atol(const char *str);
 t_node	*ft_lstlast(t_node *list);
 void	ft_lstadd_back(t_node **list, t_node *new);
-int		ft_check_sort(t_node *stack_a);
-void	ft_sort3(t_node **stack_a);
+int		check_sort(t_node *stack_a);
+void	sort3(t_node **stack_a);
+int		get_index(t_node *node, int data);
+char	**ft_split(char const *str, char c);
 
 #endif

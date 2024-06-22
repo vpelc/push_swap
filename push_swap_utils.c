@@ -6,13 +6,13 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:05:22 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/02 19:58:17 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/18 14:46:32 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_count_node(t_node **list)
+int	count_node(t_node **list)
 {
 	int		i;
 	t_node	*temp;
@@ -25,6 +25,19 @@ int	ft_count_node(t_node **list)
 	{
 		temp = temp->next;
 		i++;
+	}
+	return (i);
+}
+
+int	get_index(t_node *node, int data)
+{
+	int	i;
+
+	i = 0;
+	while (node->data != data)
+	{
+		i++;
+		node = node->next;
 	}
 	return (i);
 }

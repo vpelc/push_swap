@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:56:31 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/14 16:44:56 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/18 14:44:12 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 	- rotate & swap if : top = max / mid = mid / bot = min
 	- swap & rotate if : top = min / mid = max / bot = mid
 */
-void	ft_sort3(t_node **stack_a)
+void	sort3(t_node **stack_a)
 {
 	if ((*stack_a)->data > (*stack_a)->next->data
 		&& (*stack_a)->next->data < (*stack_a)->next->next->data
@@ -48,7 +48,7 @@ void	ft_sort3(t_node **stack_a)
 	}
 }
 
-int	ft_check_sort(t_node *stack_a)
+int	check_sort(t_node *stack_a)
 {
 	int	i;
 

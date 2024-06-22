@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:26:51 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/17 20:16:54 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/20 14:03:06 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_rotate(t_node **list)
 	int		length;
 	int		l;
 
-	length = ft_count_node(list);
+	length = count_node(list);
 	l = length;
 	if (!(*list) || length < 1)
 		return ;
@@ -79,7 +79,7 @@ void	ft_rotate_reverse(t_node **list)
 	t_node	*temp;
 	int		length;
 
-	length = ft_count_node(list);
+	length = count_node(list);
 	if (!(*list) || length < 1)
 		return ;
 	templist = *list;
@@ -98,44 +98,4 @@ void	ft_rotate_reverse(t_node **list)
 	}
 }
 
-int	main(int argc, char *argv[])
-{
-	t_node	*stack_a;
-	t_node	*stack_b;
-	t_node	*tmp;
-	t_node	temp;
-	int		i;
-
-	/* argc = 4;
-	argv[1] = "2";
-	argv[2] = "3";
-	argv[3] = "1";
-	//argv[4] = "8"; */
-	i = 1;
-	stack_a = ft_get_arg(argv[i], i);
-	i++;
-	printf("\nBefore\n\n");
-	while (i < argc)
-	{
-		tmp = ft_get_arg(argv[i], i);
-		ft_lstadd_back(&stack_a, tmp);
-		i++;
-	}
-	tmp = stack_a;
-	while (tmp)
-	{
-		printf("%ld : %ld\n", tmp->index, tmp->data);
-		tmp = tmp->next;
-	}
-	printf("\nNow\n\n");
-	ft_sort3(&stack_a);
-	tmp = stack_a;
-	printf("\n");
-	while (tmp)
-	{
-		printf("%ld : %ld\n", tmp->index, tmp->data);
-		tmp = tmp->next;
-	}
-	return (0);
-}
 
