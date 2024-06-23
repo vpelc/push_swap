@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 18:06:02 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/22 18:46:12 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/23 19:50:04 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,27 +82,29 @@ void	sort_b(t_node **stack_a, t_node **stack_b)
 
 void	sort_a(t_node **stack_a, t_node **stack_b)
 {
-	int	i;
-	int	min;
+	// int	i;
+	// int	min;
 
 	while (count_node(stack_b) > 0)
 	{
-		if ((ft_lstlast(*stack_a))->data > (*stack_b)->data)
+		while (((ft_lstlast(*stack_a))->data > (*stack_b)->data))
+			rra(stack_a);
+		while (((ft_lstlast(*stack_a))->data > (*stack_b)->data) && !check_sort(*stack_a))
 			rra(stack_a);
 		pa(stack_a, stack_b);
 	}
-	min = get_min(*stack_a);
-	i = get_index(*stack_a, min);
-	if (i < count_node(stack_a) - 1)
-	{
-		while ((*stack_a)->data != min)
-			ra(stack_a);
-	}
-	else
-	{
-		while ((*stack_a)->data != min)
-			rra(stack_a);
-	}
+	// min = get_min(*stack_a);
+	// i = get_index(*stack_a, min);
+	// if (i < count_node(stack_a) - i)
+	// {
+	// 	while ((*stack_a)->data != min)
+	// 		ra(stack_a);
+	// }
+	// else
+	// {
+	// 	while ((*stack_a)->data != min)
+	// 		rra(stack_a);
+	// }
 }
 
 /*	1. pushes 2 numbers no matter what
@@ -115,12 +117,27 @@ void	sort_a(t_node **stack_a, t_node **stack_b)
 	4. pushing from stack B to stack A in sorted way*/
 void	sort(t_node **stack_a, t_node **stack_b)
 {
+	int	i;
+	int	min;
+
 	if (count_node(stack_a) > 3)
 		pb(stack_b, stack_a);
 	if (count_node(stack_a) > 3)
 		pb(stack_b, stack_a);
 	if (count_node(stack_a) > 3)
 		sort_b(stack_a, stack_b);
+	min = get_min(*stack_b);
+	i = get_index(*stack_b, min);
+	if (i < count_node(stack_b) - i)
+	{
+		while ((ft_lstlast(*stack_b))->data != min)
+			rb(stack_b);
+	}
+	else
+	{
+		while (ft_lstlast((*stack_b))->data != min)
+			rrb(stack_b);
+	}
 	sort3(stack_a);
 	sort_a(stack_a, stack_b);
 }

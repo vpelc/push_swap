@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 16:36:34 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/22 18:39:20 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/23 15:55:08 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ void	do_rrarrb(t_node **stack_a, t_node **stack_b, int data)
 	int	i;
 
 	i = pos_stack(*stack_b, data);
-	while ((*stack_a)->data != data && i > count_node(stack_b))
+	while ((*stack_a)->data != data && i < count_node(stack_b))
 	{
 		rrr(stack_a, stack_b);
 		i++;
 	}
 	while ((*stack_a)->data != data)
 		rra(stack_a);
-	while (i > count_node(stack_b))
+	while (i < count_node(stack_b))
 	{
 		rrb(stack_b);
 		i++;
@@ -104,7 +104,7 @@ void	do_rarrb(t_node **stack_a, t_node **stack_b, int data)
 	i = pos_stack(*stack_b, data);
 	while ((*stack_a)->data != data)
 		ra(stack_a);
-	while (i > count_node(stack_b))
+	while (i < count_node(stack_b))
 	{
 		rrb(stack_b);
 		i++;

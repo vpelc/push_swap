@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:26:51 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/22 18:49:32 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/23 14:59:03 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,16 @@ void	ft_push(t_node **list_a, t_node **list_b)
 	temp->next = *list_a;
 	*list_a = temp;
 	temp->index = 1;
+	temp = temp->next;
 	while (temp)
 	{
-		i = temp->index;
-		i--;
-		temp->index = i;
+		(temp->index)++;
+		temp = temp->next;
+	}
+	temp = *list_b;
+	while (temp)
+	{
+		(temp->index)--;
 		temp = temp->next;
 	}
 }

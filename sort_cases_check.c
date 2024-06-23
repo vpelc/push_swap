@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 16:04:40 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/22 18:38:06 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/23 17:49:41 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,18 @@ int	case_rrarrb(t_node *stack_a, t_node *stack_b, int data)
 	move_a = get_index(stack_a, data);
 	move_b = pos_stack(stack_b, data);
 	operation = 0;
-	while (move_a > count_node(&stack_a) && move_b > count_node(&stack_b))
+	while (move_a > count_node(&stack_a) && move_b < count_node(&stack_b))
 	{
 		move_a++;
 		move_b++;
 		operation++;
 	}
-	while (move_a > count_node(&stack_a))
+	while (move_a < count_node(&stack_a))
 	{
 		move_a++;
 		operation++;
 	}
-	while (move_b > count_node(&stack_b))
+	while (move_b < count_node(&stack_b))
 	{
 		move_b++;
 		operation++;
@@ -93,7 +93,7 @@ int	case_rrarb(t_node *stack_a, t_node *stack_b, int data)
 	move_a = get_index(stack_a, data);
 	move_b = pos_stack(stack_b, data);
 	operation = 0;
-	while (move_a > count_node(&stack_a))
+	while (move_a < count_node(&stack_a))
 	{
 		move_a++;
 		operation++;
@@ -125,7 +125,7 @@ int	case_rarrb(t_node *stack_a, t_node *stack_b, int data)
 		move_a--;
 		operation++;
 	}
-	while (move_b > count_node(&stack_b))
+	while (move_b < count_node(&stack_b))
 	{
 		move_b++;
 		operation++;
