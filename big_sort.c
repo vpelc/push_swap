@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 18:06:02 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/23 19:50:04 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/25 20:40:28 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,29 +82,30 @@ void	sort_b(t_node **stack_a, t_node **stack_b)
 
 void	sort_a(t_node **stack_a, t_node **stack_b)
 {
-	// int	i;
-	// int	min;
+	int	i;
+	int	min;
 
 	while (count_node(stack_b) > 0)
 	{
-		while (((ft_lstlast(*stack_a))->data > (*stack_b)->data))
+		while (((ft_lstlast(*stack_a))->data > (*stack_b)->data)
+			&& (get_min(*stack_a)) < (*stack_b)->data)
 			rra(stack_a);
-		while (((ft_lstlast(*stack_a))->data > (*stack_b)->data) && !check_sort(*stack_a))
+		while ((get_min(*stack_a)) > (*stack_b)->data && !check_sort(*stack_a))
 			rra(stack_a);
 		pa(stack_a, stack_b);
 	}
-	// min = get_min(*stack_a);
-	// i = get_index(*stack_a, min);
-	// if (i < count_node(stack_a) - i)
-	// {
-	// 	while ((*stack_a)->data != min)
-	// 		ra(stack_a);
-	// }
-	// else
-	// {
-	// 	while ((*stack_a)->data != min)
-	// 		rra(stack_a);
-	// }
+	min = get_min(*stack_a);
+	i = get_index(*stack_a, min);
+	if (i < count_node(stack_a) - i)
+	{
+		while ((*stack_a)->data != min)
+			ra(stack_a);
+	}
+	else
+	{
+		while ((*stack_a)->data != min)
+			rra(stack_a);
+	}
 }
 
 /*	1. pushes 2 numbers no matter what
@@ -139,5 +140,5 @@ void	sort(t_node **stack_a, t_node **stack_b)
 			rrb(stack_b);
 	}
 	sort3(stack_a);
-	sort_a(stack_a, stack_b);
+	//sort_a(stack_a, stack_b);
 }
