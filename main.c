@@ -6,47 +6,52 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:45:13 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/23 18:07:02 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/27 19:25:58 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	send_error(void)
+{
+	printf("Error\n");
+}
 
 int	main(int argc, char *argv[])
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
 	t_node	*tmp;
-	t_node	temp;
+	int		error;
 	int		i;
 
-	/* argc = 4;
-	argv[1] = "2";
-	argv[2] = "3";
-	argv[3] = "1";
-	//argv[4] = "8"; */
 	i = 1;
-	stack_a = put_arg(argv[i], i);
+	error = 0;
+	if (argc == 2)
+		return (send_error(), 0);
+	stack_a = put_arg(argv[i], i, &error);
+	if (error == 1)
+		return (send_error(), 0);
 	i++;
-	printf("\nBefore\n\n");
 	while (i < argc)
 	{
-		tmp = put_arg(argv[i], i);
+		tmp = put_arg(argv[i], i, &error);
+		if (error == 1)
+			return (send_error(), 0);
 		ft_lstadd_back(&stack_a, tmp);
 		i++;
 	}
-	tmp = stack_a;
+	sort(&stack_a, &stack_b);
+	return (0);
+}
+/* 	tmp = stack_a;
 	while (tmp)
 	{
 		printf("%ld : %ld\n", tmp->index, tmp->data);
 		tmp = tmp->next;
 	}
 	printf("\nNow\n\n");
-	sort(&stack_a, &stack_b);
-	// pb(&stack_b, &stack_a);
-	// pb(&stack_b, &stack_a);
-	// sort_b(&stack_a, &stack_b);
-	// sort3(&stack_a);
+	
 	tmp = stack_a;
 	printf("\n");
 	while (tmp)
@@ -61,5 +66,4 @@ int	main(int argc, char *argv[])
 		printf("%ld : %ld\n", tmp->index, tmp->data);
 		tmp = tmp->next;
 	}
-	return (0);
-}
+	 */

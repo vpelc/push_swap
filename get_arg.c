@@ -6,19 +6,21 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:53:21 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/23 17:44:39 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/27 19:12:14 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_arg(char *str, long **tab)
+int	get_arg(char *str, long **tab, int *error)
 {
 	char	**split;
 	int		i;
 
 	i = 0;
 	split = ft_split(str, ' ');
+	if (!check_arg_not_digit(split, error))
+		return (0);
 	while (split[i])
 		i++;
 	*tab = malloc(sizeof(long) * i);
@@ -26,12 +28,16 @@ int	get_arg(char *str, long **tab)
 	while (split[i])
 	{
 		(*tab)[i] = ft_atol(split[i]);
+		if (!check_arg_too_big((*tab)[i], error))
+			return (0);
 		i++;
 	}
+	if (!check_arg_repeat(tab, i, error))
+		return (0);
 	return (i);
 }
 
-t_node	*put_arg(char *str, int index)
+t_node	*put_arg(char *str, int index, int *error)
 {
 	t_node	*top_node;
 	t_node	*new_node;
@@ -40,7 +46,9 @@ t_node	*put_arg(char *str, int index)
 	int		i;
 
 	i = 0;
-	length = get_arg(str, &tab);
+	length = get_arg(str, &tab, error);
+	if (*error == 1)
+		return (0);
 	top_node = malloc(sizeof(t_node) * 1);
 	top_node->data = tab[i++];
 	top_node->index = index;

@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 18:06:02 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/25 20:40:28 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/27 17:43:52 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,5 +140,5 @@ void	sort(t_node **stack_a, t_node **stack_b)
 			rrb(stack_b);
 	}
 	sort3(stack_a);
-	//sort_a(stack_a, stack_b);
+	sort_a(stack_a, stack_b);
 }

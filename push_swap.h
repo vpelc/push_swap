@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:29:13 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/22 18:25:55 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/27 18:57:05 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 
 /* Stack structure */
 typedef struct s_node
@@ -50,8 +51,8 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 /*	Functions to get args and put in args
 	in the stack A
 */
-int		get_arg(char *str, long **tab);
-t_node	*put_arg(char *str, int index);
+int		get_arg(char *str, long **tab, int *error);
+t_node	*put_arg(char *str, int index, int *error);
 long	ft_atol(const char *str);
 char	**ft_split(char const *str, char c);
 
@@ -78,5 +79,9 @@ void	do_rarb(t_node **stack_a, t_node **stack_b, int data);
 void	do_rrarrb(t_node **stack_a, t_node **stack_b, int data);
 void	do_rrarb(t_node **stack_a, t_node **stack_b, int data);
 void	do_rarrb(t_node **stack_a, t_node **stack_b, int data);
+
+int		check_arg_repeat(long **data, int length, int *error);
+int		check_arg_too_big(long data, int *error);
+int		check_arg_not_digit(char **str, int *error);
 
 #endif
