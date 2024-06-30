@@ -12,6 +12,24 @@
 
 #include "push_swap.h"
 
+void	ft_swap(t_node **list)
+{
+	t_node	*temp;
+	t_node	*node;
+	long	tmpindex;
+
+	if (!(*list) || !((*list)->next))
+		return ;
+	node = *list;
+	temp = node->next;
+	tmpindex = node->index;
+	node->next = temp->next;
+	node->index = temp->index;
+	temp->next = node;
+	temp->index = tmpindex;
+	*list = temp;
+}
+
 void	sa(t_node **stack_a)
 {
 	ft_swap(stack_a);

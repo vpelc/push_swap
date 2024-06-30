@@ -27,6 +27,9 @@ int	main(int argc, char *argv[])
 
 	i = 1;
 	error = 0;
+	stack_b = NULL;
+	if (argc == 1)
+		return (0);
 	if (argc == 2)
 		return (send_error(), 0);
 	stack_a = put_arg(argv[i], i, &error);
@@ -41,6 +44,8 @@ int	main(int argc, char *argv[])
 		ft_lstadd_back(&stack_a, tmp);
 		i++;
 	}
+	if (!check_arg_repeat(stack_a))
+		return (send_error(), 0);
 	sort(&stack_a, &stack_b);
 	return (0);
 }

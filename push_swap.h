@@ -63,6 +63,7 @@ void	sort3(t_node **stack_a);
 void	sort(t_node **stack_a, t_node **stack_b);
 void	sort_b(t_node **stack_a, t_node **stack_b);
 void	sort_a(t_node **stack_a, t_node **stack_b);
+void	max_top(t_node **stack_a, t_node **stack_b);
 
 int		get_index(t_node *node, int data);
 int		get_min(t_node	*stack);
@@ -80,8 +81,9 @@ void	do_rrarrb(t_node **stack_a, t_node **stack_b, int data);
 void	do_rrarb(t_node **stack_a, t_node **stack_b, int data);
 void	do_rarrb(t_node **stack_a, t_node **stack_b, int data);
 
-int		check_arg_repeat(long **data, int length, int *error);
+int		check_arg_repeat(t_node *stack);
 int		check_arg_too_big(long data, int *error);
 int		check_arg_not_digit(char **str, int *error);
+
 
 #endif

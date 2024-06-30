@@ -78,6 +78,7 @@ void	sort_b(t_node **stack_a, t_node **stack_b)
 				tmp = tmp->next;
 		}
 	}
+	max_top(stack_a, stack_b);
 }
 
 void	sort_a(t_node **stack_a, t_node **stack_b)
@@ -94,6 +95,7 @@ void	sort_a(t_node **stack_a, t_node **stack_b)
 			rra(stack_a);
 		pa(stack_a, stack_b);
 	}
+
 	min = get_min(*stack_a);
 	i = get_index(*stack_a, min);
 	if (i < count_node(stack_a) - i)
@@ -127,7 +129,7 @@ void	sort(t_node **stack_a, t_node **stack_b)
 		pb(stack_b, stack_a);
 	if (count_node(stack_a) > 3)
 		sort_b(stack_a, stack_b);
-	min = get_min(*stack_b);
+	/*min = get_min(*stack_b);
 	i = get_index(*stack_b, min);
 	if (i < count_node(stack_b) - i)
 	{
@@ -138,7 +140,7 @@ void	sort(t_node **stack_a, t_node **stack_b)
 	{
 		while (ft_lstlast((*stack_b))->data != min)
 			rrb(stack_b);
-	}
+	}*/
 	sort3(stack_a);
 	sort_a(stack_a, stack_b);
 }

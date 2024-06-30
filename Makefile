@@ -20,7 +20,7 @@ RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCE = 
+SOURCE = atol big_sort check_arg get_arg main operation_push operation_reverse_rotate operation_rotate operation_swap push_swap_utils small_sort sort_cases_check sort_cases_do sort_utils split
 
 SOURCES = $(addsuffix .c, ${SOURCE})
 

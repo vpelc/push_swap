@@ -69,3 +69,23 @@ int	pos_stack(t_node *stack, int data)
 	}
 	return (i);
 }
+
+
+void	max_top(t_node **stack_a, t_node **stack_b)
+{
+	int	i;
+	int	min;
+
+	min = get_min(*stack_a);
+	i = get_index(*stack_a, min);
+	if (i < count_node(stack_b) - i)
+	{
+		while ((ft_lstlast(*stack_b))->data != min)
+			rb(stack_b);
+	}
+	else
+	{
+		while (ft_lstlast((*stack_b))->data != min)
+			rrb(stack_b);
+	}
+}

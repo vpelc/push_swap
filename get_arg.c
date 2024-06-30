@@ -32,8 +32,6 @@ int	get_arg(char *str, long **tab, int *error)
 			return (0);
 		i++;
 	}
-	if (!check_arg_repeat(tab, i, error))
-		return (0);
 	return (i);
 }
 

@@ -12,25 +12,22 @@
 
 #include "push_swap.h"
 
-int	check_arg_repeat(long **data, int length, int *error)
+int	check_arg_repeat(t_node *stack)
 {
-	int	i;
-	int	j;
+	t_node	*tmp;
+	t_node	*pmt;
 
-	i = 0;
-	while (i < length)
+	pmt = stack;
+	while (pmt)
 	{
-		j = i + 1;
-		while (j < length)
+		tmp = pmt->next;
+		while (tmp)
 		{
-			if ((*data)[i] == (*data)[j])
-			{
+			if (tmp->data == pmt->data)
 				return (0);
-				*error = 1;
-			}
-			j++;
+			tmp = tmp->next;
 		}
-		i++;
+		pmt = pmt->next;
 	}
 	return (1);
 }
@@ -63,7 +60,8 @@ int	check_arg_not_digit(char **str, int *error)
 		j = 0;
 		while (str[i][j])
 		{
-			if (!ft_isdigit(str[i][j]))
+			if (!ft_isdigit(str[i][j])
+				&& str[i][j] != '-' && str[i][j] != '+')
 			{
 				*error = 1;
 				return (0);

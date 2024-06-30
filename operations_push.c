@@ -12,6 +12,32 @@
 
 #include "push_swap.h"
 
+void	ft_push(t_node **list_a, t_node **list_b)
+{
+	t_node	*temp;
+	long	i;
+
+	if (!(*list_b))
+		return ;
+	temp = *list_b;
+	*list_b = temp->next;
+	temp->next = *list_a;
+	*list_a = temp;
+	temp->index = 1;
+	temp = temp->next;
+	while (temp)
+	{
+		(temp->index)++;
+		temp = temp->next;
+	}
+	temp = *list_b;
+	while (temp)
+	{
+		(temp->index)--;
+		temp = temp->next;
+	}
+}
+
 void	pa(t_node **stack_a, t_node **stack_b)
 {
 	ft_push(stack_a, stack_b);

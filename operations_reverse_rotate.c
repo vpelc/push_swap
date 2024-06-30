@@ -12,6 +12,31 @@
 
 #include "push_swap.h"
 
+void	ft_rotate_reverse(t_node **list)
+{
+	t_node	*templist;
+	t_node	*temp;
+	int		length;
+
+	length = count_node(list);
+	if (!(*list) || length < 1)
+		return ;
+	templist = *list;
+	while (templist->next->next)
+		templist = templist->next;
+	temp = templist->next;
+	templist->next = NULL;
+	temp->next = *list;
+	*list = temp;
+	(*list)->index = 1;
+	while (length > 1)
+	{
+		temp = temp->next;
+		temp->index += 1;
+		length--;
+	}
+}
+
 void	rra(t_node **stack_a)
 {
 	ft_rotate_reverse(stack_a);
