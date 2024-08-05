@@ -15,7 +15,7 @@
 void	ft_push(t_node **list_a, t_node **list_b)
 {
 	t_node	*temp;
-	long	i;
+	//long	i;
 
 	if (!(*list_b))
 		return ;
