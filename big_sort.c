@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 18:06:02 by vpelc             #+#    #+#             */
-/*   Updated: 2024/08/19 13:44:12 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/08/19 14:42:31 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	sort_b(t_node **stack_a, t_node **stack_b)
 
 void	sort_a(t_node **stack_a, t_node **stack_b, int i, int min)
 {
-	if (!check_sort_reverse(*stack_b) && count_node(stack_b) == 2)
+	if (count_node(stack_b) == 2 && !check_sort_reverse(*stack_b))
 		sb(stack_b);
 	while (count_node(stack_b) > 0)
 	{
