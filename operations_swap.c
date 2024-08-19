@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 14:02:05 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/20 14:04:02 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/30 17:42:03 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@ void	ft_swap(t_node **list)
 void	sa(t_node **stack_a)
 {
 	ft_swap(stack_a);
-	printf("sa\n");
+	ft_printf("sa\n");
 }
 
 void	sb(t_node **stack_b)
 {
 	ft_swap(stack_b);
-	printf("sb\n");
+	ft_printf("sb\n");
 }
 
 void	ss(t_node **stack_a, t_node **stack_b)
 {
 	ft_swap(stack_a);
 	ft_swap(stack_b);
-	printf("ss\n");
+	ft_printf("ss\n");
 }

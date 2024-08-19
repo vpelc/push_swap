@@ -6,18 +6,18 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 20:31:00 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/27 19:20:25 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/08/18 17:50:18 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_arg_repeat(t_node *stack)
+int	check_arg_repeat(t_node **stack)
 {
 	t_node	*tmp;
 	t_node	*pmt;
 
-	pmt = stack;
+	pmt = *stack;
 	while (pmt)
 	{
 		tmp = pmt->next;

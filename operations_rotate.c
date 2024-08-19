@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 14:14:30 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/20 14:03:40 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/06/30 17:41:53 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,18 @@ void	ft_rotate(t_node **list)
 void	ra(t_node **stack_a)
 {
 	ft_rotate(stack_a);
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	rb(t_node **stack_b)
 {
 	ft_rotate(stack_b);
-	printf("rb\n");
+	ft_printf("rb\n");
 }
 
 void	rr(t_node **stack_a, t_node **stack_b)
 {
 	ft_rotate(stack_a);
 	ft_rotate(stack_b);
-	printf("rr\n");
+	ft_printf("rr\n");
 }

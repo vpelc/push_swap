@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:56:31 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/22 16:08:24 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/08/19 13:28:09 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,17 @@ int	check_sort(t_node *stack_a)
 	return (1);
 }
 
+int	check_sort_reverse(t_node *stack_a)
+{
+	int	i;
+
+	i = stack_a->data;
+	while (stack_a)
+	{
+		if (i < stack_a->data)
+			return (0);
+		i = stack_a->data;
+		stack_a = stack_a->next;
+	}
+	return (1);
+}

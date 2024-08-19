@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 19:38:34 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/20 13:33:46 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/08/18 19:19:20 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,6 @@ static	int	ft_isnegative(char str)
 	return (0);
 }
 
-static	int	check_longmax(const char *str, long i)
-{
-	int	j;
-
-	j = 0;
-	while (str[i] == '0')
-		i++;
-	while (ft_isdigit(str[i + j]))
-		j++;
-	if (j > 19)
-		return (1);
-	return (0);
-}
-
 long	ft_atol(const char *str)
 {
 	int		i;
@@ -67,17 +53,15 @@ long	ft_atol(const char *str)
 		n *= ft_isnegative(str[i]);
 		i++;
 	}
-	if (check_longmax(str, i))
-	{
-		if (n == -1)
-			return (0);
-		return (-1);
-	}
+	if (!ft_isdigit(str[i]))
+		return (2147483648);
 	while (ft_isdigit(str[i]))
 	{
 		r = r * 10;
 		r = r + (str[i] - 48);
 		i++;
 	}
+	if (!ft_isdigit(str[i]) && str[i] != '\0')
+		return (2147483648);
 	return (r * n);
 }

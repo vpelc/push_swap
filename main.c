@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:45:13 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/27 19:25:58 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/08/19 14:06:33 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	send_error(void)
 {
-	printf("Error\n");
+	write(2, "Error\n", 6);
 }
 
 int	main(int argc, char *argv[])
@@ -30,45 +30,18 @@ int	main(int argc, char *argv[])
 	stack_b = NULL;
 	if (argc == 1)
 		return (0);
-	if (argc == 2)
-		return (send_error(), 0);
 	stack_a = put_arg(argv[i], i, &error);
 	if (error == 1)
 		return (send_error(), 0);
-	i++;
-	while (i < argc)
+	while (++i < argc)
 	{
 		tmp = put_arg(argv[i], i, &error);
 		if (error == 1)
 			return (send_error(), 0);
 		ft_lstadd_back(&stack_a, tmp);
-		i++;
 	}
-	if (!check_arg_repeat(stack_a))
+	if (!check_arg_repeat(&stack_a))
 		return (send_error(), 0);
 	sort(&stack_a, &stack_b);
 	return (0);
 }
-/* 	tmp = stack_a;
-	while (tmp)
-	{
-		printf("%ld : %ld\n", tmp->index, tmp->data);
-		tmp = tmp->next;
-	}
-	printf("\nNow\n\n");
-	
-	tmp = stack_a;
-	printf("\n");
-	while (tmp)
-	{
-		printf("%ld : %ld\n", tmp->index, tmp->data);
-		tmp = tmp->next;
-	}
-	tmp = stack_b;
-	printf("\n");
-	while (tmp)
-	{
-		printf("%ld : %ld\n", tmp->index, tmp->data);
-		tmp = tmp->next;
-	}
-	 */

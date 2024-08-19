@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:29:13 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/27 18:57:05 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/08/19 13:35:46 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <limits.h>
+# include "ft_printf/ft_printf.h"
 
 /* Stack structure */
 typedef struct s_node
@@ -59,11 +60,12 @@ char	**ft_split(char const *str, char c);
 t_node	*ft_lstlast(t_node *list);
 void	ft_lstadd_back(t_node **list, t_node *new);
 int		check_sort(t_node *stack_a);
+int		check_sort_reverse(t_node *stack_a);
 void	sort3(t_node **stack_a);
 void	sort(t_node **stack_a, t_node **stack_b);
 void	sort_b(t_node **stack_a, t_node **stack_b);
-void	sort_a(t_node **stack_a, t_node **stack_b);
-void	max_top(t_node **stack_a, t_node **stack_b);
+void	sort_a(t_node **stack_a, t_node **stack_b, int i, int min);
+void	max_top(t_node **stack_b);
 
 int		get_index(t_node *node, int data);
 int		get_min(t_node	*stack);
@@ -81,9 +83,8 @@ void	do_rrarrb(t_node **stack_a, t_node **stack_b, int data);
 void	do_rrarb(t_node **stack_a, t_node **stack_b, int data);
 void	do_rarrb(t_node **stack_a, t_node **stack_b, int data);
 
-int		check_arg_repeat(t_node *stack);
+int		check_arg_repeat(t_node **stack);
 int		check_arg_too_big(long data, int *error);
 int		check_arg_not_digit(char **str, int *error);
-
 
 #endif

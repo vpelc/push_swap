@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:17:01 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/22 15:18:28 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/08/18 13:58:34 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,13 @@ int	pos_stack(t_node *stack, int data)
 	return (i);
 }
 
-
-void	max_top(t_node **stack_a, t_node **stack_b)
+void	max_top(t_node **stack_b)
 {
 	int	i;
 	int	min;
 
-	min = get_min(*stack_a);
-	i = get_index(*stack_a, min);
+	min = get_min(*stack_b);
+	i = get_index(*stack_b, min);
 	if (i < count_node(stack_b) - i)
 	{
 		while ((ft_lstlast(*stack_b))->data != min)

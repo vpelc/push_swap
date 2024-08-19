@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 13:28:25 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/20 13:28:49 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/07/01 20:04:25 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static	int	ft_nbrstr(char const *str, char c)
 	return (j);
 }
 
-static	void	ft_putstr(char *split, char const *str, char c)
+static	void	ft_putstr_split(char *split, char const *str, char c)
 {
 	size_t	i;
 
@@ -61,7 +61,7 @@ static	int	ft_put_in_split(char **split, char const *str, char c)
 			split[k] = malloc(sizeof(char) * j + 1);
 			if (!split[k])
 				return (0);
-			ft_putstr(split[k], str + i, c);
+			ft_putstr_split(split[k], str + i, c);
 			i += j;
 			k++;
 		}

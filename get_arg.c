@@ -6,7 +6,7 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:53:21 by vpelc             #+#    #+#             */
-/*   Updated: 2024/06/27 19:12:14 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/08/18 19:20:37 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	get_arg(char *str, long **tab, int *error)
 	split = ft_split(str, ' ');
 	if (!check_arg_not_digit(split, error))
 		return (0);
+	if (ft_strlen(split[i]) > 11)
+		*error = 1;
 	while (split[i])
 		i++;
 	*tab = malloc(sizeof(long) * i);
@@ -48,18 +50,17 @@ t_node	*put_arg(char *str, int index, int *error)
 	if (*error == 1)
 		return (0);
 	top_node = malloc(sizeof(t_node) * 1);
-	top_node->data = tab[i++];
+	top_node->data = tab[i];
 	top_node->index = index;
 	top_node->next = NULL;
 	index++;
-	while (i < length)
+	while (++i < length)
 	{
 		new_node = malloc(sizeof(t_node) * 1);
 		new_node->data = tab[i];
 		new_node->index = index;
 		new_node->next = NULL;
 		ft_lstadd_back(&top_node, new_node);
-		i++;
 		index++;
 	}
 	return (top_node);
