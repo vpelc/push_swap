@@ -6,11 +6,28 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:45:13 by vpelc             #+#    #+#             */
-/*   Updated: 2024/08/19 14:06:33 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/08/23 17:52:06 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_stack(t_node **stack)
+{
+	t_node	*node;
+	t_node	*tmp;
+
+	if (stack == NULL || *stack == NULL)
+		return ;
+	node = *stack;
+	while (node)
+	{
+		tmp = node;
+		node = node->next;
+		free(tmp);
+	}
+	*stack = NULL;
+}
 
 static void	send_error(void)
 {
@@ -43,5 +60,5 @@ int	main(int argc, char *argv[])
 	if (!check_arg_repeat(&stack_a))
 		return (send_error(), 0);
 	sort(&stack_a, &stack_b);
-	return (0);
+	return (free_stack(&stack_a), free_stack(&stack_b), 0);
 }

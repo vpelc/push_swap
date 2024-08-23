@@ -6,11 +6,24 @@
 /*   By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:53:21 by vpelc             #+#    #+#             */
-/*   Updated: 2024/08/18 19:20:37 by vpelc            ###   ########.fr       */
+/*   Updated: 2024/08/23 17:45:49 by vpelc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_free_split(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
 
 int	get_arg(char *str, long **tab, int *error)
 {
@@ -20,7 +33,7 @@ int	get_arg(char *str, long **tab, int *error)
 	i = 0;
 	split = ft_split(str, ' ');
 	if (!check_arg_not_digit(split, error))
-		return (0);
+		return (ft_free_split(split), 0);
 	if (ft_strlen(split[i]) > 11)
 		*error = 1;
 	while (split[i])
@@ -31,9 +44,10 @@ int	get_arg(char *str, long **tab, int *error)
 	{
 		(*tab)[i] = ft_atol(split[i]);
 		if (!check_arg_too_big((*tab)[i], error))
-			return (0);
+			return (ft_free_split(split), 0);
 		i++;
 	}
+	ft_free_split(split);
 	return (i);
 }
 
@@ -63,7 +77,7 @@ t_node	*put_arg(char *str, int index, int *error)
 		ft_lstadd_back(&top_node, new_node);
 		index++;
 	}
-	return (top_node);
+	return (free(tab), top_node);
 }
 
 t_node	*ft_lstlast(t_node *list)

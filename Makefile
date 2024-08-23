@@ -6,7 +6,7 @@
 #    By: vpelc <vpelc@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/08 11:09:54 by vpelc             #+#    #+#              #
-#    Updated: 2024/08/18 15:02:43 by vpelc            ###   ########.fr        #
+#    Updated: 2024/08/23 17:55:09 by vpelc            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SOURCES = $(addsuffix .c, ${SOURCE})
 OBJECTS = ${SOURCES:.c=.o}
 
 .c.o:
-		${CC}  -g -c $< -o ${<:.c=.o}
+		${CC} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJECTS}
 		make -C ./ft_printf
