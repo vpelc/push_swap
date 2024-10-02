@@ -15,6 +15,10 @@
 void	ft_push(t_node **list_a, t_node **list_b)
 {
 	t_node	*temp;
+<<<<<<< HEAD
+=======
+	//long	i;
+>>>>>>> efb3468901d235e884adde065b5bbe725029c79c
 
 	if (!(*list_b))
 		return ;

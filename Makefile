@@ -18,10 +18,14 @@ RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
+<<<<<<< HEAD
 SOURCE = atol big_sort check_arg get_arg main \
 operations_push operations_reverse_rotate operations_rotate \
 operations_swap push_swap_utils small_sort sort_cases_check \
 sort_cases_do sort_utils split
+=======
+SOURCE = atol big_sort check_arg get_arg main operations_push operations_reverse_rotate operations_rotate operations_swap push_swap_utils small_sort sort_cases_check sort_cases_do sort_utils split
+>>>>>>> efb3468901d235e884adde065b5bbe725029c79c
 
 SOURCES = $(addsuffix .c, ${SOURCE})
 
@@ -31,10 +35,14 @@ OBJECTS = ${SOURCES:.c=.o}
 		${CC} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJECTS}
+<<<<<<< HEAD
 		make -C ./ft_printf
 		${CC} ${CFLAGS} ${OBJECTS} ./ft_printf/libftprintf.a -o ${NAME} -I ./
 
 all:	${NAME} 
+=======
+		${CC} -o ${NAME} ${OBJECTS}
+>>>>>>> efb3468901d235e884adde065b5bbe725029c79c
 
 clean:
 		${RM} ${OBJECTS}

@@ -123,6 +123,7 @@ void	sort_a(t_node **stack_a, t_node **stack_b, int i, int min)
 	4. pushing from stack B to stack A in sorted way*/
 void	sort(t_node **stack_a, t_node **stack_b)
 {
+<<<<<<< HEAD
 	int	i;
 	int	min;
 
@@ -136,4 +137,22 @@ void	sort(t_node **stack_a, t_node **stack_b)
 		sort_b(stack_a, stack_b);
 	sort3(stack_a);
 	sort_a(stack_a, stack_b, i, min);
+=======
+	if (count_node(stack_a) == 2)
+	{
+		if (!check_sort(*stack_a))
+			sa(stack_a);
+	}
+	else 
+	{
+		if (count_node(stack_a) > 3)
+			pb(stack_b, stack_a);
+		if (count_node(stack_a) > 3)
+			pb(stack_b, stack_a);
+		if (count_node(stack_a) > 3)
+			sort_b(stack_a, stack_b);
+		sort3(stack_a);
+		sort_a(stack_a, stack_b);
+	}
+>>>>>>> efb3468901d235e884adde065b5bbe725029c79c
 }
